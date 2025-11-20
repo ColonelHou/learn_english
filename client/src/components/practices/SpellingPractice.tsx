@@ -104,7 +104,7 @@ export default function SpellingPractice({ words, onBack }: SpellingPracticeProp
 
         <div className="practice-content">
           <p className="instruction">
-            听发音并输入单词：<strong>{currentWord?.chinese}</strong>
+            听发音并输入单词
           </p>
 
           <button className="btn-play-large" onClick={playAudio}>
