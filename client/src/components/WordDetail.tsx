@@ -1,6 +1,13 @@
 import { useState } from 'react';
+import axios from 'axios';
 import { Word } from '../types';
 import './WordDetail.css';
+
+interface MnemonicSuggestion {
+  type: string;
+  content: string;
+  icon: string;
+}
 
 interface WordDetailProps {
   word: Word;
@@ -11,6 +18,9 @@ interface WordDetailProps {
 export default function WordDetail({ word, onBack, pronounceTimes }: WordDetailProps) {
   const [mnemonic, setMnemonic] = useState(word.mnemonic || '');
   const [savedMnemonic, setSavedMnemonic] = useState(word.mnemonic || '');
+  const [suggestions, setSuggestions] = useState<MnemonicSuggestion[]>([]);
+  const [loadingSuggestions, setLoadingSuggestions] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(false);
 
   const handlePlayAudio = (audioUrl: string | null) => {
     if (!audioUrl) {
@@ -29,6 +39,30 @@ export default function WordDetail({ word, onBack, pronounceTimes }: WordDetailP
   const handleSaveMnemonic = () => {
     setSavedMnemonic(mnemonic);
     alert('Mnemonic saved! 💾');
+  };
+
+  const handleGetSuggestions = async () => {
+    try {
+      setLoadingSuggestions(true);
+      setShowSuggestions(true);
+      const encodedChinese = encodeURIComponent(word.chinese);
+      const response = await axios.get(
+        `/api/mnemonic/${word.english}/${encodedChinese}`
+      );
+
+      if (response.data.success && response.data.data.suggestions) {
+        setSuggestions(response.data.data.suggestions);
+      }
+    } catch (error) {
+      console.error('Error getting mnemonic suggestions:', error);
+      alert('无法获取助记建议，请稍后重试');
+    } finally {
+      setLoadingSuggestions(false);
+    }
+  };
+
+  const handleUseSuggestion = (content: string) => {
+    setMnemonic(content);
   };
 
   return (
@@ -86,10 +120,44 @@ export default function WordDetail({ word, onBack, pronounceTimes }: WordDetailP
 
         <div className="mnemonic-section">
           <h3>💡 助记方法</h3>
+
+          <button
+            className="btn-generate-suggestions"
+            onClick={handleGetSuggestions}
+            disabled={loadingSuggestions}
+          >
+            {loadingSuggestions ? '生成中...' : '✨ 获取助记建议'}
+          </button>
+
+          {showSuggestions && suggestions.length > 0 && (
+            <div className="suggestions-panel">
+              <h4>📌 推荐的助记方法</h4>
+              <div className="suggestions-list">
+                {suggestions.map((suggestion, index) => (
+                  <div key={index} className="suggestion-item">
+                    <div className="suggestion-header">
+                      <span className="suggestion-icon">{suggestion.icon}</span>
+                      <span className="suggestion-type">{suggestion.type}</span>
+                    </div>
+                    <div className="suggestion-content">
+                      {suggestion.content}
+                    </div>
+                    <button
+                      className="btn-use-suggestion"
+                      onClick={() => handleUseSuggestion(suggestion.content)}
+                    >
+                      ✓ 使用这个建议
+                    </button>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
           <textarea
             value={mnemonic}
             onChange={(e) => setMnemonic(e.target.value)}
-            placeholder="例如：apple 🍎 - 以 'a' 开头，记住它是红色的水果"
+            placeholder="例如：pest - 拍死它 (因为pest是害虫，'拍死它'谐音记忆)"
             className="mnemonic-input"
           />
           <button className="btn-save" onClick={handleSaveMnemonic}>

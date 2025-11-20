@@ -5,6 +5,7 @@ import dictRouter from './routes/dict.js';
 import pronounceRouter from './routes/pronunciation.js';
 import imageRouter from './routes/image.js';
 import studyHistoryRouter from './routes/study-history.js';
+import mnemonicRouter from './routes/mnemonic.js';
 
 dotenv.config();
 
@@ -20,6 +21,7 @@ app.use('/api/dict', dictRouter);
 app.use('/api/pronunciation', pronounceRouter);
 app.use('/api/image', imageRouter);
 app.use('/api/study-history', studyHistoryRouter);
+app.use('/api/mnemonic', mnemonicRouter);
 
 // Health check
 app.get('/api/health', (req, res) => {

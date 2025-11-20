@@ -1,0 +1,103 @@
+{
+  "date": "2025-11-20",
+  "savedAt": "2025-11-20T13:57:58.439Z",
+  "wordCount": 6,
+  "words": [
+    {
+      "id": "1763647077491-0.14120296392473985",
+      "english": "apple",
+      "chinese": "苹果",
+      "phonetics": {
+        "us": "/ˈæp.əl/",
+        "uk": "/ˈæp.əl/"
+      },
+      "partOfSpeech": "noun",
+      "audioUrls": {
+        "us": "https://dictionary.cambridge.org/media/english/us_pron/a/app/apple/apple.mp3",
+        "uk": "https://dictionary.cambridge.org/media/english/uk_pron/u/uka/ukapp/ukappen014.mp3"
+      },
+      "imageUrl": "https://via.placeholder.com/400x300?text=%E8%8B%B9%E6%9E%9C",
+      "mnemonic": ""
+    },
+    {
+      "id": "1763647077503-0.03024033122745018",
+      "english": "banana",
+      "chinese": "香蕉",
+      "phonetics": {
+        "us": "/bəˈnæn.ə/",
+        "uk": "/bəˈnæn.ə/"
+      },
+      "partOfSpeech": "noun",
+      "audioUrls": {
+        "us": "https://dictionary.cambridge.org/media/english/us_pron/b/ban/banan/banana.mp3",
+        "uk": "https://dictionary.cambridge.org/media/english/uk_pron/u/ukb/ukbal/ukballs018.mp3"
+      },
+      "imageUrl": "https://via.placeholder.com/400x300?text=%E9%A6%99%E8%95%89",
+      "mnemonic": ""
+    },
+    {
+      "id": "1763647077151-0.9631025889227809",
+      "english": "invite",
+      "chinese": "邀请",
+      "phonetics": {
+        "us": "/ɪnˈvaɪt/",
+        "uk": "/ɪnˈvaɪt/"
+      },
+      "partOfSpeech": "verb",
+      "audioUrls": {
+        "us": "https://dictionary.cambridge.org/media/english/us_pron/i/inv/invit/invite.mp3",
+        "uk": "https://dictionary.cambridge.org/media/english/uk_pron/u/uki/ukinv/ukinvig013.mp3"
+      },
+      "imageUrl": "https://via.placeholder.com/400x300?text=%E9%82%80%E8%AF%B7",
+      "mnemonic": ""
+    },
+    {
+      "id": "1763647077152-0.12298859792393768",
+      "english": "birthday",
+      "chinese": "生日",
+      "phonetics": {
+        "us": null,
+        "uk": null
+      },
+      "partOfSpeech": "noun",
+      "audioUrls": {
+        "us": "https://dictionary.cambridge.org/media/english/us_pron/u/usb/usbir/usbirdl006.mp3",
+        "uk": "https://dictionary.cambridge.org/media/english/uk_pron/u/ukb/ukbip/ukbipla014.mp3"
+      },
+      "imageUrl": "https://via.placeholder.com/400x300?text=%E7%94%9F%E6%97%A5",
+      "mnemonic": ""
+    },
+    {
+      "id": "1763647078325-0.6828655662400457",
+      "english": "bring",
+      "chinese": "带来",
+      "phonetics": {
+        "us": "/brɪŋ/",
+        "uk": "/brɪŋ/"
+      },
+      "partOfSpeech": "verb",
+      "audioUrls": {
+        "us": "https://dictionary.cambridge.org/media/english/us_pron/b/bri/bring/bring.mp3",
+        "uk": "https://dictionary.cambridge.org/media/english/uk_pron/u/ukb/ukbri/ukbriga019.mp3"
+      },
+      "imageUrl": "https://via.placeholder.com/400x300?text=%E5%B8%A6%E6%9D%A5",
+      "mnemonic": ""
+    },
+    {
+      "id": "1763647077322-0.4190999878257854",
+      "english": "phone",
+      "chinese": "手机",
+      "phonetics": {
+        "us": "/foʊn/",
+        "uk": "/fəʊn/"
+      },
+      "partOfSpeech": "noun",
+      "audioUrls": {
+        "us": "https://dictionary.cambridge.org/media/english/us_pron/p/pho/phone/phone.mp3",
+        "uk": "https://dictionary.cambridge.org/media/english/uk_pron/u/ukp/ukphe/ukpheno029.mp3"
+      },
+      "imageUrl": "https://via.placeholder.com/400x300?text=%E6%89%8B%E6%9C%BA",
+      "mnemonic": ""
+    }
+  ]
+}
