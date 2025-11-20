@@ -129,28 +129,24 @@
   display: flex;
   gap: 8px;
   align-items: center;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .phonetic-label {
-  background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
-  color: white;
-  padding: 3px 8px;
-  border-radius: 6px;
+  background-color: #f0f0f0;
+  color: #666;
+  padding: 2px 6px;
+  border-radius: 3px;
   font-weight: bold;
-  min-width: 26px;
+  min-width: 24px;
   text-align: center;
   font-size: 12px;
-  box-shadow: 0 2px 4px rgba(76, 175, 80, 0.2);
-  font-family: 'Comic Sans MS', Arial, sans-serif;
 }
 
 .phonetic-text {
-  font-family: 'Comic Sans MS', 'Courier New', monospace;
-  color: #2196F3;
+  font-family: 'Arial', sans-serif;
+  color: #666;
   font-style: italic;
-  font-weight: 600;
-  text-shadow: 0 1px 1px rgba(33, 150, 243, 0.1);
 }
 
 .word-col-chinese {
@@ -304,7 +300,7 @@
   }
 
   .phonetic-line {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .phonetic-label {
@@ -314,7 +310,7 @@
   }
 
   .phonetic-text {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .btn-pronunciation {
