@@ -61,6 +61,32 @@
   font-weight: 500;
 }
 
+.word-meaning {
+  font-size: 32px !important;
+  font-weight: 700 !important;
+  color: #ff6b9d !important;
+  background: linear-gradient(135deg, #ffe5ec 0%, #fff9e6 100%);
+  padding: 20px 30px !important;
+  border-radius: 20px;
+  border: 3px dashed #ff6b9d;
+  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.2);
+  margin-bottom: 35px !important;
+  display: inline-block;
+  width: calc(100% - 60px);
+  letter-spacing: 2px;
+  font-family: 'Comic Sans MS', 'Microsoft YaHei', cursive, sans-serif;
+  animation: bounce 0.5s ease;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
 .btn-play-large {
   width: 100%;
   padding: 20px;
@@ -296,5 +322,12 @@
 
   .letters-grid {
     grid-template-columns: repeat(3, 1fr);
+  }
+
+  .word-meaning {
+    font-size: 26px !important;
+    padding: 15px 20px !important;
+    width: calc(100% - 40px) !important;
+    margin-bottom: 25px !important;
   }
 }

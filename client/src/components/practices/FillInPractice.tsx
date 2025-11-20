@@ -173,7 +173,7 @@ export default function FillInPractice({ words, onBack }: FillInPracticeProps) {
         <div className="practice-content">
           {currentWord ? (
             <>
-              <p className="instruction">{currentWord.chinese}</p>
+              <p className="instruction word-meaning">✨ {currentWord.chinese} ✨</p>
 
               <div className="word-display">{renderWord()}</div>
 

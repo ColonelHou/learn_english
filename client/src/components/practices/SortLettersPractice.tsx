@@ -121,7 +121,7 @@ export default function SortLettersPractice({ words, onBack }: SortLettersPracti
         <div className="practice-content">
           {currentWord ? (
             <>
-              <p className="instruction">排列字母拼成单词：{currentWord.chinese}</p>
+              <p className="instruction word-meaning">✨ {currentWord.chinese} ✨</p>
 
               <div className="selected-word">
                 {selectedOrder.length > 0 ? (
