@@ -30,12 +30,37 @@ async function fetchFromCambridge(word) {
       definitions: []
     };
 
-    // Extract phonetics
-    const usPhonetic = $('.us.dhw').first().text();
-    const ukPhonetic = $('.uk.dhw').first().text();
+    // Extract phonetics - IPA symbols from span.pron.dpron
+    // Find UK phonetic (first occurrence of uk + next pron)
+    const ukSection = $('.uk.dpron-i').first();
+    if (ukSection.length > 0) {
+      const ukPronElement = ukSection.parent().find('span.pron.dpron').first();
+      if (ukPronElement.length > 0) {
+        const ukText = ukPronElement.text().trim();
+        if (ukText) result.phonetics.uk = ukText;
+      }
+    }
 
-    if (usPhonetic) result.phonetics.us = usPhonetic.trim();
-    if (ukPhonetic) result.phonetics.uk = ukPhonetic.trim();
+    // Find US phonetic (second occurrence or labeled us)
+    const usSection = $('.us.dpron-i').first();
+    if (usSection.length > 0) {
+      const usPronElement = usSection.parent().find('span.pron.dpron').first();
+      if (usPronElement.length > 0) {
+        const usText = usPronElement.text().trim();
+        if (usText) result.phonetics.us = usText;
+      }
+    }
+
+    // Fallback: if the above doesn't work, try getting all pron spans
+    if (!result.phonetics.us && !result.phonetics.uk) {
+      const allProns = $('span.pron.dpron').text().trim();
+      // Usually the phonetics appear in sequence, try to split them
+      const ipaMatches = response.data.match(/\/[^\/]+\//g);
+      if (ipaMatches && ipaMatches.length >= 2) {
+        result.phonetics.uk = ipaMatches[0].trim();
+        result.phonetics.us = ipaMatches[1].trim();
+      }
+    }
 
     // Extract part of speech
     const pos = $('.pos.dpos').first().text();
