@@ -19,6 +19,12 @@ export default function PracticeMenu({
 
   const practiceTypes = [
     {
+      id: 'word-list',
+      name: '词汇表',
+      icon: '📖',
+      description: '查看所有单词的详细信息',
+    },
+    {
       id: 'listening',
       name: '听力选词',
       icon: '🎧',
@@ -53,12 +59,6 @@ export default function PracticeMenu({
       name: '发音检测',
       icon: '🎤',
       description: '说出单词，获得发音准确度反馈',
-    },
-    {
-      id: 'word-list',
-      name: '词汇表',
-      icon: '📖',
-      description: '查看所有单词的详细信息',
     },
   ];
 
