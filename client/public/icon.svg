@@ -1,0 +1,25 @@
+<svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .background { fill: #4CAF50; }
+      .text { fill: white; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 180px; font-weight: bold; text-anchor: middle; }
+      .icon { fill: white; }
+    </style>
+  </defs>
+
+  <!-- 背景 -->
+  <rect class="background" width="512" height="512"/>
+
+  <!-- 书籍图标 -->
+  <g transform="translate(256, 256)">
+    <!-- 左页 -->
+    <rect class="icon" x="-120" y="-80" width="100" height="160" rx="5"/>
+    <!-- 右页 -->
+    <rect class="icon" x="20" y="-80" width="100" height="160" rx="5"/>
+    <!-- 书脊 -->
+    <rect class="icon" x="-20" y="-80" width="40" height="160" rx="2"/>
+    <!-- 英文字母 A, B, C -->
+    <text class="text" x="-70" y="20" font-size="60">A</text>
+    <text class="text" x="70" y="20" font-size="60">B</text>
+  </g>
+</svg>

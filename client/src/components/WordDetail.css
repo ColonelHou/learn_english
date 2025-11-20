@@ -1,0 +1,242 @@
+.word-detail-container {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  animation: slideUp 0.3s ease;
+}
+
+.word-detail-card {
+  background: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.btn-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: none;
+  border: none;
+  font-size: 28px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: all 0.3s ease;
+  padding: 0;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btn-close:hover {
+  color: var(--danger-color);
+  transform: scale(1.2);
+}
+
+.word-detail-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.word-title {
+  font-size: 36px;
+  color: var(--primary-color);
+  margin: 0;
+  font-weight: bold;
+}
+
+.word-chinese {
+  font-size: 18px;
+  color: var(--text-secondary);
+  margin: 10px 0 0 0;
+}
+
+.word-image-section {
+  margin: 20px 0;
+  text-align: center;
+}
+
+.word-image {
+  max-width: 100%;
+  max-height: 300px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.pronunciation-section {
+  margin: 30px 0;
+  padding: 20px;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+}
+
+.pronunciation-section h3 {
+  color: var(--primary-color);
+  margin: 0 0 20px 0;
+}
+
+.pronunciation-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.pronunciation-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pronunciation-item .label {
+  font-weight: bold;
+  color: var(--text-primary);
+  font-size: 14px;
+}
+
+.phonetic {
+  color: var(--text-secondary);
+  font-style: italic;
+  font-family: monospace;
+  font-size: 14px;
+}
+
+.btn-play {
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn-play:hover {
+  background-color: #0b7dda;
+  transform: translateY(-2px);
+}
+
+.pos-section {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #f0f8ff;
+  border-left: 4px solid var(--secondary-color);
+  border-radius: 6px;
+}
+
+.pos-section h3 {
+  color: var(--secondary-color);
+  margin: 0 0 10px 0;
+  font-size: 16px;
+}
+
+.pos-text {
+  color: var(--text-secondary);
+  margin: 0;
+  font-size: 14px;
+}
+
+.mnemonic-section {
+  margin: 20px 0;
+  padding: 15px;
+  background-color: #fff8f0;
+  border-left: 4px solid var(--warning-color);
+  border-radius: 6px;
+}
+
+.mnemonic-section h3 {
+  color: var(--warning-color);
+  margin: 0 0 15px 0;
+  font-size: 16px;
+}
+
+.mnemonic-input {
+  width: 100%;
+  min-height: 100px;
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+}
+
+.mnemonic-input:focus {
+  outline: none;
+  border-color: var(--warning-color);
+  box-shadow: 0 0 5px rgba(255, 152, 0, 0.3);
+}
+
+.btn-save {
+  width: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  background-color: var(--warning-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+.btn-save:hover {
+  background-color: #f57c00;
+  transform: translateY(-2px);
+}
+
+.saved-mnemonic {
+  margin-top: 15px;
+  padding: 12px;
+  background-color: #e8f5e9;
+  border-radius: 6px;
+  border-left: 4px solid var(--success-color);
+}
+
+.saved-mnemonic p {
+  color: var(--text-primary);
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.btn-back-detail {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background-color: var(--secondary-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  font-weight: bold;
+}
+
+.btn-back-detail:hover {
+  background-color: #0b7dda;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 600px) {
+  .word-detail-card {
+    padding: 20px;
+  }
+
+  .word-title {
+    font-size: 28px;
+  }
+
+  .word-chinese {
+    font-size: 16px;
+  }
+
+  .pronunciation-row {
+    grid-template-columns: 1fr;
+  }
+}
