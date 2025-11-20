@@ -89,7 +89,9 @@
 }
 
 .word-table tbody tr:hover {
-  background-color: var(--light-bg);
+  background: linear-gradient(135deg, #f0fff4 0%, #f8fff8 100%);
+  transform: scale(1.01);
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.15);
 }
 
 .word-table td {
@@ -99,14 +101,17 @@
 .word-col-english {
   padding: 12px 15px;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 20px;
   width: 20%;
 }
 
 .word-text {
   font-weight: bold;
-  font-size: 16px;
-  color: var(--primary-color);
+  font-size: 20px;
+  color: #4CAF50;
+  font-family: 'Comic Sans MS', 'Arial', sans-serif;
+  text-shadow: 0 1px 2px rgba(76, 175, 80, 0.2);
+  letter-spacing: 0.5px;
 }
 
 .word-col-phonetics {
@@ -145,7 +150,11 @@
 }
 
 .word-col-chinese {
-  color: var(--text-secondary);
+  color: #ff6b9d;
+  font-size: 18px;
+  font-weight: 600;
+  font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;
+  text-shadow: 0 1px 2px rgba(255, 107, 157, 0.15);
 }
 
 .word-col-pos {
@@ -287,7 +296,7 @@
   }
 
   .word-text {
-    font-size: 14px;
+    font-size: 18px;
   }
 
   .phonetic-line {
