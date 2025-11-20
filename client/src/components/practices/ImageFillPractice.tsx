@@ -105,7 +105,7 @@ export default function ImageFillPractice({ words, onBack }: ImageFillPracticePr
           )}
 
           <p className="image-hint">
-            意思：<strong>{currentWord?.chinese}</strong>
+            <span className="hint-label">意思：</span><strong className="hint-chinese">✨ {currentWord?.chinese} ✨</strong>
           </p>
 
           <input
@@ -153,9 +153,42 @@ export default function ImageFillPractice({ words, onBack }: ImageFillPracticePr
 
         .image-hint {
           text-align: center;
-          color: var(--text-secondary);
-          margin: 15px 0;
-          font-size: 16px;
+          margin: 25px 0;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+
+        .hint-label {
+          font-size: 18px;
+          color: #666;
+          font-weight: 500;
+        }
+
+        .hint-chinese {
+          font-size: 28px;
+          font-weight: 700;
+          color: #ff6b9d;
+          background: linear-gradient(135deg, #ffe5ec 0%, #fff9e6 100%);
+          padding: 15px 25px;
+          border-radius: 18px;
+          border: 3px dashed #ff6b9d;
+          box-shadow: 0 4px 15px rgba(255, 107, 157, 0.2);
+          display: inline-block;
+          letter-spacing: 1px;
+          font-family: 'Comic Sans MS', 'Microsoft YaHei', cursive, sans-serif;
+          animation: bounce 0.5s ease;
+        }
+
+        @keyframes bounce {
+          0%, 100% {
+            transform: translateY(0);
+          }
+          50% {
+            transform: translateY(-8px);
+          }
         }
       `}</style>
     </div>
