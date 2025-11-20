@@ -98,12 +98,9 @@
 
 .word-col-english {
   padding: 12px 15px;
-}
-
-.word-with-phonetics {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
+  font-weight: bold;
+  font-size: 16px;
+  width: 20%;
 }
 
 .word-text {
@@ -112,25 +109,47 @@
   color: var(--primary-color);
 }
 
-.word-phonetics {
+.word-col-phonetics {
+  padding: 12px 15px;
+  width: 35%;
+}
+
+.phonetics-container {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 
-.phonetic-item {
-  font-size: 12px;
+.phonetic-line {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  font-size: 13px;
+}
+
+.phonetic-label {
+  background-color: #f0f0f0;
   color: #666;
-  font-family: 'Arial', sans-serif;
-  line-height: 1.4;
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-weight: bold;
+  min-width: 24px;
+  text-align: center;
+  font-size: 11px;
 }
 
-.phonetic-item::before {
+.phonetic-text {
+  font-family: 'Arial', sans-serif;
+  color: #666;
+  font-style: italic;
+}
+
+.phonetic-text::before {
   content: '/ ';
   color: #999;
 }
 
-.phonetic-item::after {
+.phonetic-text::after {
   content: ' /';
   color: #999;
 }
@@ -185,6 +204,10 @@
     width: auto;
   }
 
+  .word-col-phonetics {
+    width: auto;
+  }
+
   .word-col-pos {
     display: none;
   }
@@ -219,6 +242,7 @@
   }
 
   .word-col-english,
+  .word-col-phonetics,
   .word-col-chinese {
     width: auto;
   }
@@ -227,7 +251,17 @@
     font-size: 14px;
   }
 
-  .phonetic-item {
+  .phonetic-line {
+    font-size: 12px;
+  }
+
+  .phonetic-label {
+    font-size: 10px;
+    min-width: 22px;
+    padding: 1px 4px;
+  }
+
+  .phonetic-text {
     font-size: 11px;
   }
 }

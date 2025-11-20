@@ -42,7 +42,8 @@ export default function WordList({ words, onBack }: WordListProps) {
             <table className="word-table">
               <thead>
                 <tr>
-                  <th>英文 / 音标</th>
+                  <th>英文</th>
+                  <th>音标</th>
                   <th>中文</th>
                   <th>词性</th>
                 </tr>
@@ -51,16 +52,22 @@ export default function WordList({ words, onBack }: WordListProps) {
                 {filteredWords.map((word) => (
                   <tr key={word.id} className="word-row">
                     <td className="word-col-english">
-                      <div className="word-with-phonetics">
-                        <div className="word-text">{word.english}</div>
-                        <div className="word-phonetics">
-                          {word.phonetics.us && (
-                            <span className="phonetic-item">美 {word.phonetics.us}</span>
-                          )}
-                          {word.phonetics.uk && (
-                            <span className="phonetic-item">英 {word.phonetics.uk}</span>
-                          )}
-                        </div>
+                      <div className="word-text">{word.english}</div>
+                    </td>
+                    <td className="word-col-phonetics">
+                      <div className="phonetics-container">
+                        {word.phonetics.us && (
+                          <div className="phonetic-line">
+                            <span className="phonetic-label">美</span>
+                            <span className="phonetic-text">{word.phonetics.us}</span>
+                          </div>
+                        )}
+                        {word.phonetics.uk && (
+                          <div className="phonetic-line">
+                            <span className="phonetic-label">英</span>
+                            <span className="phonetic-text">{word.phonetics.uk}</span>
+                          </div>
+                        )}
                       </div>
                     </td>
                     <td className="word-col-chinese">{word.chinese}</td>
