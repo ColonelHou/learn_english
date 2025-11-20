@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import axios from 'axios';
 import './App.css';
 import { Word } from './types';
 import WordImport from './components/WordImport';
@@ -11,6 +12,7 @@ import SpellingPractice from './components/practices/SpellingPractice';
 import ImageFillPractice from './components/practices/ImageFillPractice';
 import PronunciationTest from './components/practices/PronunciationTest';
 import WordList from './components/WordList';
+import StudyHistory from './components/StudyHistory';
 
 type Page =
   | 'home'
@@ -22,7 +24,8 @@ type Page =
   | 'spelling'
   | 'image-fill'
   | 'pronunciation-test'
-  | 'word-list';
+  | 'word-list'
+  | 'study-history';
 
 function App() {
   const [words, setWords] = useState<Word[]>([]);
@@ -32,9 +35,19 @@ function App() {
     pronounceTimes: 3
   });
 
-  const handleWordsImported = (importedWords: Word[]) => {
+  const handleWordsImported = async (importedWords: Word[]) => {
     setWords(importedWords);
     setCurrentPage('practice-menu');
+
+    // Automatically save words to study history
+    try {
+      await axios.post('/api/study-history/save', {
+        words: importedWords,
+      });
+    } catch (error) {
+      console.error('Error saving study history:', error);
+      // Don't interrupt user experience if save fails
+    }
   };
 
   const handleSelectWord = (word: Word) => {
@@ -65,9 +78,17 @@ function App() {
       case 'word-list':
         setCurrentPage('word-list');
         break;
+      case 'study-history':
+        setCurrentPage('study-history');
+        break;
       default:
         break;
     }
+  };
+
+  const handleHistoryWordsLoaded = (historyWords: Word[]) => {
+    setWords(historyWords);
+    setCurrentPage('practice-menu');
   };
 
   const handleBackToPracticeMenu = () => {
@@ -164,6 +185,13 @@ function App() {
           <WordList
             words={words}
             onBack={handleBackToPracticeMenu}
+          />
+        )}
+
+        {currentPage === 'study-history' && (
+          <StudyHistory
+            onWordsLoaded={handleHistoryWordsLoaded}
+            onBack={handleBackToHome}
           />
         )}
       </main>

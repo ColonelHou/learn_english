@@ -6,10 +6,10 @@
 }
 
 .practice-card {
-  background: white;
+  background: #FFFEF0;
   border-radius: 12px;
   padding: 30px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 16px rgba(124, 179, 66, 0.08);
   display: flex;
   flex-direction: column;
 }
@@ -64,12 +64,12 @@
 .word-meaning {
   font-size: 32px !important;
   font-weight: 700 !important;
-  color: #ff6b9d !important;
-  background: linear-gradient(135deg, #ffe5ec 0%, #fff9e6 100%);
+  color: #D87397 !important;
+  background: linear-gradient(135deg, #F5E8F0 0%, #FBF5EE 100%);
   padding: 20px 30px !important;
   border-radius: 20px;
-  border: 3px dashed #ff6b9d;
-  box-shadow: 0 4px 15px rgba(255, 107, 157, 0.2);
+  border: 3px dashed #D87397;
+  box-shadow: 0 4px 15px rgba(216, 115, 151, 0.15);
   margin-bottom: 35px !important;
   display: inline-block;
   width: calc(100% - 60px);
@@ -102,9 +102,9 @@
 }
 
 .btn-play-large:hover {
-  background-color: #45a049;
+  background-color: #6FA838;
   transform: translateY(-3px);
-  box-shadow: 0 6px 12px rgba(76, 175, 80, 0.4);
+  box-shadow: 0 6px 12px rgba(124, 179, 66, 0.15);
 }
 
 .options-grid {
@@ -118,7 +118,7 @@
   padding: 20px;
   border: 2px solid var(--border-color);
   border-radius: 10px;
-  background: white;
+  background: #FFFBF5;
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: center;
@@ -129,7 +129,7 @@
 
 .option-btn:hover:not(:disabled) {
   border-color: var(--primary-color);
-  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.2);
+  box-shadow: 0 4px 8px rgba(124, 179, 66, 0.12);
   transform: translateY(-3px);
 }
 
@@ -138,12 +138,12 @@
 }
 
 .option-btn.correct {
-  background-color: #c8e6c9;
+  background-color: #D4E8D0;
   border-color: var(--success-color);
 }
 
 .option-btn.wrong {
-  background-color: #ffcdd2;
+  background-color: #E8D4D0;
   border-color: var(--danger-color);
 }
 
@@ -180,14 +180,14 @@
 }
 
 .feedback.success {
-  background-color: #c8e6c9;
-  color: #2e7d32;
+  background-color: #D4E8D0;
+  color: #556B5A;
   border-left: 4px solid var(--success-color);
 }
 
 .feedback.error {
-  background-color: #ffcdd2;
-  color: #c62828;
+  background-color: #E8D4D0;
+  color: #7A4A4A;
   border-left: 4px solid var(--danger-color);
 }
 
@@ -215,7 +215,7 @@
 }
 
 .btn-back-practice:hover {
-  background-color: #da190b;
+  background-color: #B85C5C;
   transform: translateY(-2px);
 }
 
@@ -225,7 +225,7 @@
 }
 
 .btn-next:hover {
-  background-color: #45a049;
+  background-color: #6FA838;
   transform: translateY(-2px);
 }
 
@@ -252,7 +252,7 @@
   padding: 15px;
   border: 2px solid var(--border-color);
   border-radius: 8px;
-  background: white;
+  background: #FFFBF5;
   cursor: pointer;
   font-size: 18px;
   font-weight: bold;
@@ -261,11 +261,11 @@
 
 .letter-btn:hover:not(:disabled) {
   border-color: var(--primary-color);
-  box-shadow: 0 4px 8px rgba(76, 175, 80, 0.2);
+  box-shadow: 0 4px 8px rgba(124, 179, 66, 0.12);
 }
 
 .letter-btn:disabled {
-  background-color: #f0f0f0;
+  background-color: #F5F3ED;
   color: #999;
   cursor: not-allowed;
 }
@@ -291,7 +291,7 @@
 .input-field:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+  box-shadow: 0 0 8px rgba(124, 179, 66, 0.2);
 }
 
 .word-image-practice {

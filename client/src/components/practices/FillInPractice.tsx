@@ -87,6 +87,7 @@ export default function FillInPractice({ words, onBack }: FillInPracticeProps) {
     if (isCorrectAnswer) {
       setScore(score + 1);
       playSuccessSound();
+      playPraiseVoice();
       setTimeout(() => {
         handleNext();
       }, 500);
@@ -112,6 +113,48 @@ export default function FillInPractice({ words, onBack }: FillInPracticeProps) {
 
     oscillator.start(audioContext.currentTime);
     oscillator.stop(audioContext.currentTime + 0.2);
+  };
+
+  const playPraiseVoice = () => {
+    const praiseList = [
+      { text: '太棒了！', pitch: 1.3, rate: 0.9 },
+      { text: '你真厉害！', pitch: 1.2, rate: 0.85 },
+      { text: '完美！', pitch: 1.4, rate: 0.95 },
+      { text: '了不起！', pitch: 1.25, rate: 0.88 },
+      { text: '超级聪明！', pitch: 1.35, rate: 0.9 },
+      { text: '天才表现！', pitch: 1.3, rate: 0.87 },
+      { text: '哇！真不敢相信！', pitch: 1.4, rate: 0.8 },
+      { text: '精彩绝伦！', pitch: 1.25, rate: 0.85 },
+      { text: '无与伦比！', pitch: 1.3, rate: 0.88 },
+      { text: '顶级表现！', pitch: 1.2, rate: 0.9 },
+      { text: '继续加油！', pitch: 1.35, rate: 0.9 },
+      { text: '你进步真快！', pitch: 1.15, rate: 0.85 },
+      { text: '越来越好了！', pitch: 1.25, rate: 0.88 },
+      { text: '势不可挡！', pitch: 1.3, rate: 0.92 },
+      { text: '火力全开！', pitch: 1.4, rate: 0.9 },
+      { text: '乘风破浪！', pitch: 1.25, rate: 0.87 },
+      { text: '勇往直前！', pitch: 1.2, rate: 0.88 },
+      { text: '再接再厉！', pitch: 1.3, rate: 0.85 },
+      { text: '势如破竹！', pitch: 1.35, rate: 0.9 },
+      { text: '进步神速！', pitch: 1.25, rate: 0.87 },
+      { text: '你真行！', pitch: 1.15, rate: 0.9 },
+      { text: '好样的！', pitch: 1.3, rate: 0.88 },
+      { text: '干得漂亮！', pitch: 1.25, rate: 0.85 },
+      { text: '真聪明！', pitch: 1.2, rate: 0.9 },
+      { text: '反应真快！', pitch: 1.3, rate: 0.87 },
+      { text: '思路清晰！', pitch: 1.15, rate: 0.88 },
+      { text: '观察力强！', pitch: 1.25, rate: 0.85 },
+      { text: '记忆力超群！', pitch: 1.2, rate: 0.87 },
+      { text: '举一反三！', pitch: 1.3, rate: 0.9 },
+      { text: '一点就通！', pitch: 1.25, rate: 0.88 }
+    ];
+    const randomItem = praiseList[Math.floor(Math.random() * praiseList.length)];
+    const utterance = new SpeechSynthesisUtterance(randomItem.text);
+    utterance.lang = 'zh-CN';
+    utterance.rate = randomItem.rate;
+    utterance.pitch = randomItem.pitch;
+    utterance.volume = 1;
+    window.speechSynthesis.speak(utterance);
   };
 
   const handleNext = () => {

@@ -6,10 +6,10 @@
 }
 
 .word-list-card {
-  background: white;
+  background: #FFFEF0;
   border-radius: 12px;
   padding: 30px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 16px rgba(124, 179, 66, 0.08);
   display: flex;
   flex-direction: column;
 }
@@ -23,14 +23,14 @@
   color: white;
   margin: 0 0 15px 0;
   font-size: 32px;
-  background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+  background: linear-gradient(135deg, #7CB342 0%, #9CCC65 100%);
   padding: 20px 30px;
   border-radius: 15px;
-  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+  box-shadow: 0 4px 15px rgba(124, 179, 66, 0.25);
 }
 
 .word-list-header p {
-  color: #666;
+  color: #5D6D7B;
   margin: 0;
   font-size: 18px;
   font-weight: 600;
@@ -46,20 +46,21 @@
 .search-input {
   flex: 1;
   padding: 15px;
-  border: 3px solid #ddd;
+  border: 3px solid #D4C5B0;
   border-radius: 10px;
   font-size: 18px;
   transition: all 0.3s ease;
+  background-color: #FFFBF5;
 }
 
 .search-input:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 12px rgba(76, 175, 80, 0.4);
+  box-shadow: 0 0 12px rgba(124, 179, 66, 0.2);
 }
 
 .search-count {
-  color: #666;
+  color: #5D6D7B;
   font-size: 16px;
   white-space: nowrap;
   font-weight: 600;
@@ -78,7 +79,7 @@
 }
 
 .word-table thead {
-  background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+  background: linear-gradient(135deg, #7CB342 0%, #9CCC65 100%);
   color: white;
 }
 
@@ -87,18 +88,18 @@
   text-align: left;
   font-weight: bold;
   font-size: 18px;
-  border-bottom: 3px solid #4CAF50;
+  border-bottom: 3px solid #7CB342;
 }
 
 .word-table tbody tr {
-  border-bottom: 2px solid #eee;
+  border-bottom: 2px solid #E8E0D0;
   transition: all 0.3s ease;
 }
 
 .word-table tbody tr:hover {
-  background: linear-gradient(135deg, #f0fff4 0%, #f8fff8 100%);
+  background: linear-gradient(135deg, #F5F3ED 0%, #FFFCF7 100%);
   transform: scale(1.02);
-  box-shadow: 0 3px 12px rgba(76, 175, 80, 0.2);
+  box-shadow: 0 3px 12px rgba(124, 179, 66, 0.15);
 }
 
 .word-table td {
@@ -116,9 +117,9 @@
 .word-text {
   font-weight: bold;
   font-size: 20px;
-  color: #4CAF50;
+  color: #7CB342;
   font-family: 'Comic Sans MS', 'Arial', sans-serif;
-  text-shadow: 0 1px 2px rgba(76, 175, 80, 0.2);
+  text-shadow: 0 1px 2px rgba(124, 179, 66, 0.15);
   letter-spacing: 0.5px;
 }
 
@@ -141,8 +142,8 @@
 }
 
 .phonetic-label {
-  background-color: #f0f0f0;
-  color: #666;
+  background-color: #E8E0D0;
+  color: #5D6D7B;
   padding: 2px 6px;
   border-radius: 3px;
   font-weight: bold;
@@ -153,16 +154,16 @@
 
 .phonetic-text {
   font-family: 'Arial', sans-serif;
-  color: #666;
+  color: #5D6D7B;
   font-style: italic;
 }
 
 .word-col-chinese {
-  color: #ff6b9d;
+  color: #D87397;
   font-size: 18px;
   font-weight: 600;
   font-family: 'Comic Sans MS', 'Microsoft YaHei', sans-serif;
-  text-shadow: 0 1px 2px rgba(255, 107, 157, 0.15);
+  text-shadow: 0 1px 2px rgba(216, 115, 151, 0.12);
 }
 
 .word-col-pos {
@@ -176,7 +177,7 @@
 }
 
 .btn-pronunciation {
-  background-color: #4CAF50;
+  background-color: #7CB342;
   color: white;
   border: none;
   border-radius: 8px;
@@ -187,13 +188,13 @@
   transition: all 0.3s ease;
   white-space: nowrap;
   min-width: 70px;
-  box-shadow: 0 3px 8px rgba(76, 175, 80, 0.3);
+  box-shadow: 0 3px 8px rgba(124, 179, 66, 0.25);
 }
 
 .btn-pronunciation:hover {
-  background-color: #45a049;
+  background-color: #6FA838;
   transform: scale(1.1);
-  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
+  box-shadow: 0 4px 12px rgba(124, 179, 66, 0.3);
 }
 
 .btn-pronunciation:active {
@@ -201,16 +202,16 @@
 }
 
 .btn-pronunciation.playing {
-  background-color: #ff9800;
+  background-color: #D4A76A;
   animation: pulse 0.6s ease-in-out infinite;
 }
 
 @keyframes pulse {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.7);
+    box-shadow: 0 0 0 0 rgba(212, 167, 106, 0.5);
   }
   50% {
-    box-shadow: 0 0 0 8px rgba(255, 152, 0, 0);
+    box-shadow: 0 0 0 8px rgba(212, 167, 106, 0);
   }
 }
 
@@ -235,7 +236,7 @@
 }
 
 .btn-back:hover {
-  background-color: #0b7dda;
+  background-color: #4A6F5B;
   transform: translateY(-2px);
 }
 
@@ -260,7 +261,8 @@
   }
 
   .word-col-pos {
-    display: none;
+    font-size: 12px;
+    padding: 12px 8px;
   }
 
   .btn-pronunciation {
@@ -317,6 +319,11 @@
   .word-col-phonetics,
   .word-col-chinese {
     width: auto;
+  }
+
+  .word-col-pos {
+    font-size: 11px;
+    padding: 10px 6px;
   }
 
   .word-text {

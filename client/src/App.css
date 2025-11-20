@@ -2,13 +2,13 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #F5F5DC 0%, #FFFEF0 100%);
 }
 
 .app-header {
-  background: white;
+  background: linear-gradient(135deg, #F0F8E8 0%, #FFFEF0 100%);
   padding: 20px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 8px rgba(124, 179, 66, 0.1);
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -45,7 +45,7 @@
 }
 
 .btn-back:hover {
-  background-color: #0b7dda;
+  background-color: #4A6F5B;
   transform: translateY(-2px);
 }
 

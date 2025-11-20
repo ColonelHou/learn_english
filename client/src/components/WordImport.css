@@ -5,10 +5,10 @@
 }
 
 .word-import-card {
-  background: white;
+  background: #FFFEF0;
   border-radius: 12px;
   padding: 40px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 8px 16px rgba(124, 179, 66, 0.08);
 }
 
 .word-import-card h2 {
@@ -24,11 +24,11 @@
 }
 
 .help-text code {
-  background-color: #f0f0f0;
+  background-color: #E8E0D0;
   padding: 2px 6px;
   border-radius: 3px;
   font-family: monospace;
-  color: #d63384;
+  color: #9B6B8F;
 }
 
 .word-input {
@@ -41,23 +41,24 @@
   font-size: 14px;
   resize: vertical;
   transition: border-color 0.3s ease;
+  background-color: #FFFBF5;
 }
 
 .word-input:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+  box-shadow: 0 0 8px rgba(124, 179, 66, 0.2);
 }
 
 .word-input:disabled {
-  background-color: #f9f9f9;
+  background-color: #F5F3ED;
   cursor: not-allowed;
 }
 
 .error-message {
   color: var(--danger-color);
   padding: 12px;
-  background-color: #ffebee;
+  background-color: #F5E8E8;
   border-radius: 6px;
   margin: 15px 0;
   border-left: 4px solid var(--danger-color);
@@ -78,19 +79,19 @@
 }
 
 .btn-import:hover:not(:disabled) {
-  background-color: #45a049;
+  background-color: #6FA838;
   transform: translateY(-2px);
-  box-shadow: 0 6px 12px rgba(76, 175, 80, 0.4);
+  box-shadow: 0 6px 12px rgba(124, 179, 66, 0.3);
 }
 
 .btn-import:disabled {
-  background-color: #ccc;
+  background-color: #D4C5B0;
   cursor: not-allowed;
   transform: none;
 }
 
 .tips {
-  background-color: #f5f5f5;
+  background-color: #F5F3ED;
   padding: 20px;
   border-radius: 8px;
   margin-top: 20px;
@@ -112,7 +113,7 @@
 .tips li {
   padding: 8px 0;
   color: var(--text-secondary);
-  border-bottom: 1px solid #e0e0e0;
+  border-bottom: 1px solid #E8E0D0;
 }
 
 .tips li:last-child {

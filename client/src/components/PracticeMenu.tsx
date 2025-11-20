@@ -19,6 +19,12 @@ export default function PracticeMenu({
 
   const practiceTypes = [
     {
+      id: 'study-history',
+      name: '学习历史',
+      icon: '📅',
+      description: '查看之前学习过的单词，继续复习',
+    },
+    {
       id: 'word-list',
       name: '词汇表',
       icon: '📖',
