@@ -153,6 +153,49 @@
   color: var(--secondary-color);
 }
 
+.word-col-pronunciation {
+  text-align: center;
+  padding: 8px 10px !important;
+}
+
+.btn-pronunciation {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+  min-width: 60px;
+}
+
+.btn-pronunciation:hover {
+  background-color: #45a049;
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+}
+
+.btn-pronunciation:active {
+  transform: scale(0.98);
+}
+
+.btn-pronunciation.playing {
+  background-color: #ff9800;
+  animation: pulse 0.6s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(255, 152, 0, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 8px rgba(255, 152, 0, 0);
+  }
+}
+
 .no-results {
   text-align: center;
   padding: 40px;
@@ -200,6 +243,12 @@
 
   .word-col-pos {
     display: none;
+  }
+
+  .btn-pronunciation {
+    padding: 5px 10px;
+    font-size: 12px;
+    min-width: 55px;
   }
 }
 
@@ -253,5 +302,11 @@
 
   .phonetic-text {
     font-size: 11px;
+  }
+
+  .btn-pronunciation {
+    padding: 4px 8px;
+    font-size: 11px;
+    min-width: 45px;
   }
 }

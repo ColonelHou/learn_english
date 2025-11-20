@@ -9,12 +9,40 @@ interface WordListProps {
 
 export default function WordList({ words, onBack }: WordListProps) {
   const [searchTerm, setSearchTerm] = useState('');
+  const [playingAudio, setPlayingAudio] = useState<string | null>(null);
 
   const filteredWords = words.filter(
     (word) =>
       word.english.toLowerCase().includes(searchTerm.toLowerCase()) ||
       word.chinese.includes(searchTerm)
   );
+
+  const playAudio = (audioUrl: string | null, wordId: string) => {
+    if (!audioUrl) {
+      alert('该单词没有音频');
+      return;
+    }
+
+    // Stop any currently playing audio
+    if (playingAudio) {
+      const audio = document.getElementById(playingAudio) as HTMLAudioElement;
+      if (audio) {
+        audio.pause();
+        audio.currentTime = 0;
+      }
+    }
+
+    const audio = new Audio(audioUrl);
+    audio.id = `audio-${wordId}`;
+    audio.onended = () => setPlayingAudio(null);
+
+    audio.play().catch((error) => {
+      console.error('Failed to play audio:', error);
+      alert('无法播放音频');
+    });
+
+    setPlayingAudio(`audio-${wordId}`);
+  };
 
   return (
     <div className="word-list-container">
@@ -46,6 +74,8 @@ export default function WordList({ words, onBack }: WordListProps) {
                   <th>音标</th>
                   <th>中文</th>
                   <th>词性</th>
+                  <th>英式发音</th>
+                  <th>美式发音</th>
                 </tr>
               </thead>
               <tbody>
@@ -72,6 +102,24 @@ export default function WordList({ words, onBack }: WordListProps) {
                     </td>
                     <td className="word-col-chinese">{word.chinese}</td>
                     <td className="word-col-pos">{word.partOfSpeech || '-'}</td>
+                    <td className="word-col-pronunciation">
+                      <button
+                        className={`btn-pronunciation ${playingAudio === `audio-uk-${word.id}` ? 'playing' : ''}`}
+                        onClick={() => playAudio(word.audioUrls.uk, `uk-${word.id}`)}
+                        title="点击播放英式发音"
+                      >
+                        🔊 英
+                      </button>
+                    </td>
+                    <td className="word-col-pronunciation">
+                      <button
+                        className={`btn-pronunciation ${playingAudio === `audio-us-${word.id}` ? 'playing' : ''}`}
+                        onClick={() => playAudio(word.audioUrls.us, `us-${word.id}`)}
+                        title="点击播放美式发音"
+                      >
+                        🔊 美
+                      </button>
+                    </td>
                   </tr>
                 ))}
               </tbody>
