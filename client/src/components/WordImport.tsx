@@ -8,7 +8,12 @@ interface WordImportProps {
 }
 
 export default function WordImport({ onWordsImported }: WordImportProps) {
-  const [inputText, setInputText] = useState('');
+  const [inputText, setInputText] = useState(`apple	苹果
+banana	香蕉
+invite	邀请
+birthday	生日
+bring	带来
+phone	手机`);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
 
@@ -114,10 +119,7 @@ export default function WordImport({ onWordsImported }: WordImportProps) {
         <textarea
           value={inputText}
           onChange={(e) => setInputText(e.target.value)}
-          placeholder="apple	苹果
-cat	猫
-dog	狗
-book	书"
+          placeholder="输入单词列表..."
           rows={12}
           className="word-input"
           disabled={loading}
