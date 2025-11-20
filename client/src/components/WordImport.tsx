@@ -19,18 +19,26 @@ phone	手机`);
 
   const parseWords = (text: string): Array<{ english: string; chinese: string }> => {
     const lines = text.trim().split('\n');
-    return lines
-      .map((line) => {
+    const words = new Map(); // Use Map to handle duplicates, keeping the last occurrence
+
+    lines
+      .forEach((line) => {
         const parts = line.split(/[\t,]/);
         if (parts.length >= 2) {
-          return {
-            english: parts[0].trim(),
-            chinese: parts[1].trim(),
-          };
+          const english = parts[0].trim().toLowerCase(); // Normalize to lowercase
+          const chinese = parts[1].trim();
+
+          if (english && chinese) {
+            // Store in Map - this will automatically replace duplicates with last occurrence
+            words.set(english, {
+              english: parts[0].trim(), // Keep original case for display
+              chinese
+            });
+          }
         }
-        return null;
-      })
-      .filter((item) => item !== null) as Array<{ english: string; chinese: string }>;
+      });
+
+    return Array.from(words.values());
   };
 
   const fetchWordData = async (word: { english: string; chinese: string }): Promise<Word> => {
@@ -86,16 +94,23 @@ phone	手机`);
     setError('');
 
     try {
-      const parsedWords = parseWords(inputText);
+      const allWords = parseWords(inputText);
+      const originalCount = inputText.trim().split('\n').filter(line => line.trim()).length;
+      const uniqueCount = allWords.length;
 
-      if (parsedWords.length === 0) {
+      if (uniqueCount === 0) {
         setError('Invalid format. Please use format: word\\tchineseword or word,chineseword');
         setLoading(false);
         return;
       }
 
-      // Fetch data for each word
-      const importedWords = await Promise.all(parsedWords.map((w) => fetchWordData(w)));
+      // Show deduplication message if duplicates were found
+      if (originalCount > uniqueCount) {
+        setError(`发现重复单词，已自动去重。原输入 ${originalCount} 个，去重后 ${uniqueCount} 个单词`);
+      }
+
+      // Fetch data for each unique word
+      const importedWords = await Promise.all(allWords.map((w) => fetchWordData(w)));
 
       onWordsImported(importedWords);
     } catch (err) {
