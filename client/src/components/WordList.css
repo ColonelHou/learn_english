@@ -16,47 +16,53 @@
 
 .word-list-header {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .word-list-header h2 {
-  color: var(--primary-color);
-  margin: 0 0 10px 0;
-  font-size: 28px;
+  color: white;
+  margin: 0 0 15px 0;
+  font-size: 32px;
+  background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
+  padding: 20px 30px;
+  border-radius: 15px;
+  box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
 }
 
 .word-list-header p {
-  color: var(--text-secondary);
+  color: #666;
   margin: 0;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .search-box {
   display: flex;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 25px;
   align-items: center;
 }
 
 .search-input {
   flex: 1;
-  padding: 12px;
-  border: 2px solid var(--border-color);
-  border-radius: 8px;
-  font-size: 16px;
+  padding: 15px;
+  border: 3px solid #ddd;
+  border-radius: 10px;
+  font-size: 18px;
   transition: all 0.3s ease;
 }
 
 .search-input:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 8px rgba(76, 175, 80, 0.3);
+  box-shadow: 0 0 12px rgba(76, 175, 80, 0.4);
 }
 
 .search-count {
-  color: var(--text-secondary);
-  font-size: 14px;
+  color: #666;
+  font-size: 16px;
   white-space: nowrap;
+  font-weight: 600;
 }
 
 .word-list-content {
@@ -68,34 +74,36 @@
 .word-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .word-table thead {
-  background-color: var(--primary-color);
+  background: linear-gradient(135deg, #4CAF50 0%, #8BC34A 100%);
   color: white;
 }
 
 .word-table th {
-  padding: 15px;
+  padding: 20px 15px;
   text-align: left;
   font-weight: bold;
-  border-bottom: 2px solid var(--primary-color);
+  font-size: 18px;
+  border-bottom: 3px solid #4CAF50;
 }
 
 .word-table tbody tr {
-  border-bottom: 1px solid var(--border-color);
+  border-bottom: 2px solid #eee;
   transition: all 0.3s ease;
 }
 
 .word-table tbody tr:hover {
   background: linear-gradient(135deg, #f0fff4 0%, #f8fff8 100%);
-  transform: scale(1.01);
-  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.15);
+  transform: scale(1.02);
+  box-shadow: 0 3px 12px rgba(76, 175, 80, 0.2);
 }
 
 .word-table td {
-  padding: 12px 15px;
+  padding: 18px 15px;
+  vertical-align: middle;
 }
 
 .word-col-english {
@@ -171,24 +179,25 @@
   background-color: #4CAF50;
   color: white;
   border: none;
-  border-radius: 6px;
-  padding: 6px 12px;
-  font-size: 13px;
+  border-radius: 8px;
+  padding: 10px 18px;
+  font-size: 16px;
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s ease;
   white-space: nowrap;
-  min-width: 60px;
+  min-width: 70px;
+  box-shadow: 0 3px 8px rgba(76, 175, 80, 0.3);
 }
 
 .btn-pronunciation:hover {
   background-color: #45a049;
-  transform: scale(1.05);
-  box-shadow: 0 2px 8px rgba(76, 175, 80, 0.3);
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(76, 175, 80, 0.4);
 }
 
 .btn-pronunciation:active {
-  transform: scale(0.98);
+  transform: scale(0.95);
 }
 
 .btn-pronunciation.playing {
@@ -255,38 +264,53 @@
   }
 
   .btn-pronunciation {
-    padding: 5px 10px;
-    font-size: 12px;
-    min-width: 55px;
+    padding: 8px 14px;
+    font-size: 14px;
+    min-width: 65px;
   }
 }
 
 @media (max-width: 768px) {
   .word-list-card {
-    padding: 15px;
+    padding: 20px;
+  }
+
+  .word-list-header {
+    margin-bottom: 25px;
   }
 
   .word-list-header h2 {
-    font-size: 22px;
+    font-size: 26px;
+    padding: 15px 25px;
   }
 
-  .search-box {
-    flex-direction: column;
-    gap: 8px;
+  .word-list-header p {
+    font-size: 16px;
+  }
+
+  .search-input {
+    padding: 12px;
+    font-size: 16px;
   }
 
   .search-count {
     width: 100%;
-    text-align: right;
+    text-align: center;
+    font-size: 15px;
   }
 
   .word-table {
-    font-size: 12px;
+    font-size: 15px;
+  }
+
+  .word-table th {
+    padding: 15px 12px;
+    font-size: 16px;
   }
 
   .word-table th,
   .word-table td {
-    padding: 8px 10px;
+    padding: 14px 12px;
   }
 
   .word-col-english,
@@ -296,7 +320,7 @@
   }
 
   .word-text {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .phonetic-line {
@@ -314,8 +338,8 @@
   }
 
   .btn-pronunciation {
-    padding: 4px 8px;
-    font-size: 11px;
-    min-width: 45px;
+    padding: 8px 12px;
+    font-size: 13px;
+    min-width: 55px;
   }
 }
