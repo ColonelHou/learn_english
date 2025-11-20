@@ -31,35 +31,33 @@ async function fetchFromCambridge(word) {
     };
 
     // Extract phonetics - IPA symbols from span.pron.dpron
-    // Find UK phonetic (first occurrence of uk + next pron)
-    const ukSection = $('.uk.dpron-i').first();
-    if (ukSection.length > 0) {
-      const ukPronElement = ukSection.parent().find('span.pron.dpron').first();
-      if (ukPronElement.length > 0) {
-        const ukText = ukPronElement.text().trim();
-        if (ukText) result.phonetics.uk = ukText;
-      }
-    }
+    // Helper function to validate IPA text (should contain / and phonetic characters)
+    const isValidIPA = (text) => {
+      if (!text || typeof text !== 'string') return false;
+      // Valid IPA should start and end with / and contain phonetic symbols
+      return /^\/[a-zːəɪæʊʌɔɛɒʃθðŋĝĵŵŷẑčğħĵķļņŕšţůûüźžß\s\.\-ˈˌ]+\/$/.test(text);
+    };
 
-    // Find US phonetic (second occurrence or labeled us)
-    const usSection = $('.us.dpron-i').first();
-    if (usSection.length > 0) {
-      const usPronElement = usSection.parent().find('span.pron.dpron').first();
-      if (usPronElement.length > 0) {
-        const usText = usPronElement.text().trim();
-        if (usText) result.phonetics.us = usText;
-      }
-    }
+    // Find all phonetics sections in order they appear
+    const pronElements = $('span.pron.dpron');
+    const extractedPhonetics = [];
 
-    // Fallback: if the above doesn't work, try getting all pron spans
-    if (!result.phonetics.us && !result.phonetics.uk) {
-      const allProns = $('span.pron.dpron').text().trim();
-      // Usually the phonetics appear in sequence, try to split them
-      const ipaMatches = response.data.match(/\/[^\/]+\//g);
-      if (ipaMatches && ipaMatches.length >= 2) {
-        result.phonetics.uk = ipaMatches[0].trim();
-        result.phonetics.us = ipaMatches[1].trim();
+    pronElements.each((index, element) => {
+      const text = $(element).text().trim();
+      if (isValidIPA(text)) {
+        extractedPhonetics.push(text);
       }
+    });
+
+    // Assign UK and US based on their occurrence order or labels
+    // Usually UK comes first, then US in Cambridge Dictionary
+    if (extractedPhonetics.length >= 2) {
+      result.phonetics.uk = extractedPhonetics[0];
+      result.phonetics.us = extractedPhonetics[1];
+    } else if (extractedPhonetics.length === 1) {
+      // If only one found, assign to both
+      result.phonetics.uk = extractedPhonetics[0];
+      result.phonetics.us = extractedPhonetics[0];
     }
 
     // Extract part of speech

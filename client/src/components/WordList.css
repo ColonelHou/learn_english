@@ -144,16 +144,6 @@
   font-style: italic;
 }
 
-.phonetic-text::before {
-  content: '/ ';
-  color: #999;
-}
-
-.phonetic-text::after {
-  content: ' /';
-  color: #999;
-}
-
 .word-col-chinese {
   color: var(--text-secondary);
 }
