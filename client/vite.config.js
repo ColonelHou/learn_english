@@ -8,6 +8,11 @@ const isMacOSX64 = isMacOS && process.arch === 'x64';
 
 console.log(`Running on: ${process.platform} (${process.arch})`);
 
+// Ensure esbuild-wasm is used for cross-platform compatibility
+if (isMacOS) {
+    process.env.ESBUILD_WASM = 'true';
+}
+
 // https://vitejs.dev/config/
 export default defineConfig({
     plugins: [
